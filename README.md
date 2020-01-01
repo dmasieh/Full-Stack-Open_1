@@ -16,19 +16,19 @@
     <tr>
         <td rowspan="4">Part 0<br />Fundamentals of Web Apps </td>
         <td>0.1 - 0.3: Review HTML, CSS, and JS</td>
-        <td></td>
+        <td>No Submission</td>
     </tr>
     <tr>
         <td>0.4: /new_note Sequence Diagram</td>
-        <td></td>
+        <td>01/01/2020</td>
     </tr>
     <tr>
         <td>0.5: /spa Sequence Diagram</td>
-        <td></td>
+        <td>01/01/2020</td>
     </tr>
     <tr>
         <td>0.6: /new_note_spa Sequence Diagram</td>
-        <td></td>
+        <td>01/01/2020</td>
     </tr>
     <tr>
         <td rowspan="3">Part 1<br />Introduction to React </td>
