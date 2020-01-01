@@ -11,21 +11,21 @@ end note
 
 
 browser->server: HTTP GET: https://fullstack-exampleapp.herokuapp.com/main.css
-server-->browser: CSS Stylesheet: main.css
+server-->browser: CSS Stylesheet: notes.html: line 5: <link rel="stylesheet" type="text/css" href="/main.css">
 note over server:
     Responded with Stylesheet(CSS),
 end note
 
 
 browser->server: HTTP GET: https://fullstack-exampleapp.herokuapp.com/main.js
-server-->browser: Client Side JS: main.js
+server-->browser: Client Side JS: notes.html: line 6: <script type="text/javascript" src="main.js"></script>
 note over server:
     Responded with Client Script(JS),
 end note
 
 
 browser->server: HTTP GET: https://fullstack-exampleapp.herokuapp.com/data.json
-server-->browser: JSON DataSet: data.json, Content-Length: 3008
+server-->browser: JSON DataSet: main.js: line 22: xhttp.open("GET", "/data.json", true), Content-Length: 3008
 note over server:
     Responded with a Copy of Data.Json 
     Before Filling out the form
@@ -57,21 +57,21 @@ end note
 
 
 browser->server: HTTP GET: https://fullstack-exampleapp.herokuapp.com/main.css
-server-->browser: CSS Stylesheet: main.css
+server-->browser: CSS Stylesheet: notes.html: line 5: <link rel="stylesheet" type="text/css" href="/main.css">
 note over server:
     Responded with Stylesheet(CSS),
 end note
 
 
 browser->server: HTTP GET: https://fullstack-exampleapp.herokuapp.com/main.js
-server-->browser: Client Side JS: main.js
+server-->browser: Client Side JS: notes.html: line 6: <script type="text/javascript" src="main.js"></script>
 note over server:
     Responded with Client Script(JS),
 end note
 
 
 browser->server: HTTP GET: https://fullstack-exampleapp.herokuapp.com/data.json
-server-->browser: JSON DataSet: data.json, Content-Length: 3063
+server-->browser: JSON DataSet: main.js: line 22: xhttp.open("GET", "/data.json", true), Content-Length: 3063
 note over server:
     Dataset in Rendered Post-Form 
     Submission, Notice the new 
