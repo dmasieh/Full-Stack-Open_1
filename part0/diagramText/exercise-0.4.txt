@@ -35,8 +35,9 @@ end note
 note over browser:
     End-User fills text box
     and clicks Save [Submit],
-    Submitting: In Console ->
-    Form Data > note: [Text Sent in]
+    Submitting: In DevTools ->
+    Network -> new_note ->
+    Form Data > note: [inputText]
 end note
 
 
