@@ -43,37 +43,39 @@ const Total = (props) => {
 
 const App = () => {
     const course = 'Half Stack application development'
-    // instead of creating 6 more constant variables, let's just create 3 that are objects, that pass in 2 key-value pairs each
-    const part1 = {
-        name: 'Fundamentals of React',
-        exercises: 10
-    }
-    const part2 = {
-        name: 'Using props to pass data',
-        exercises: 7
-    }
-    const part3 = {
-        name: 'State of a component',
-        exercises: 14
-    }
+    // Instead of creating 3 constant objects like earlier, how about just creating a single array constant that can be iterated through!
+    const parts = [
+        {
+            name: 'Fundamentals of React',
+            exercises: 10
+        },
+        {
+            name: 'Using props to pass data',
+            exercises: 7
+        },
+        {
+            name: 'State of a component',
+            exercises: 14
+        }
+    ]
 
-    // Just modifying what we pass in to the components so that it still works using the above
+    // Just modifying what we pass in to the components so that it still works using the above ARRAY!
     return (
         <div>
         	<Header course={course}/>
-            <Content 
-                part1={part1.name} 
-                part2={part2.name}
-                part3={part3.name}   
-                exercises1={part1.exercises}  
-                exercises2={part2.exercises}  
-                exercises3={part3.exercises}  
+            <Content  
+                part1={parts[0].name}
+                part2={parts[1].name}
+                part3={parts[2].name}
+                exercises1={parts[0].exercises}  
+                exercises2={parts[1].exercises}  
+                exercises3={parts[2].exercises}  
             />
 
             <Total 
-                exercises1={part1.exercises}  
-                exercises2={part2.exercises}  
-                exercises3={part3.exercises}
+                exercises1={parts[0].exercises}  
+                exercises2={parts[1].exercises}  
+                exercises3={parts[2].exercises}
             />
 
         </div>
