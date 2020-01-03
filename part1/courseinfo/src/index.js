@@ -22,9 +22,9 @@ const Content = (props) => {
     //console logs only display in browser console, not terminal console
 	return (
 		<div>
-            <Part exerciseNum='1' exerciseName={props.part1} exerciseCount={props.exercises1} />
-            <Part exerciseNum='2' exerciseName={props.part2} exerciseCount={props.exercises2} />
-            <Part exerciseNum='3' exerciseName={props.part3} exerciseCount={props.exercises3} />
+            <Part exerciseNum='1' exerciseName={props.parts[0].name} exerciseCount={props.parts[0].exercises} />
+            <Part exerciseNum='2' exerciseName={props.parts[1].name} exerciseCount={props.parts[1].exercises} />
+            <Part exerciseNum='3' exerciseName={props.parts[2].name} exerciseCount={props.parts[2].exercises} />
         </div>
 	)
 }
@@ -35,7 +35,13 @@ const Total = (props) => {
     //console logs only display in browser console, not terminal console
     return(
         <div>
-            <p>Number of exercises: {props.exercises1 + props.exercises2 + props.exercises3}</p>
+            <p>Total Number of exercises: {
+                props.parts[0].exercises +
+                props.parts[1].exercises + 
+                props.parts[2].exercises
+            }
+            
+            </p>
         </div>
     )
 }
@@ -59,25 +65,13 @@ const App = () => {
         }
     ]
 
-    // Just modifying what we pass in to the components so that it still works using the above ARRAY!
+    // Just modifying what we pass in to the components so that We're doing more work splitting
+    // out the array values in the above components
     return (
         <div>
-        	<Header course={course}/>
-            <Content  
-                part1={parts[0].name}
-                part2={parts[1].name}
-                part3={parts[2].name}
-                exercises1={parts[0].exercises}  
-                exercises2={parts[1].exercises}  
-                exercises3={parts[2].exercises}  
-            />
-
-            <Total 
-                exercises1={parts[0].exercises}  
-                exercises2={parts[1].exercises}  
-                exercises3={parts[2].exercises}
-            />
-
+        	<Header course={course} />
+            <Content parts={parts} />
+            <Total parts={parts} />
         </div>
     )
 }
