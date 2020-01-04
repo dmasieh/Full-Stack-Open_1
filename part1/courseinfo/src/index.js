@@ -10,11 +10,7 @@ const Header = (props) => {
 const Part = (props) => {
     console.log(props)
     //console logs only display in browser console, not terminal console
-    return (
-        <p>
-            Part {props.exerciseNum}: {props.exerciseName}, {props.exerciseCount} exercises
-        </p>
-    )
+    return <p>Part {props.exerciseNum}: {props.exerciseName}, {props.exerciseCount} exercises</p>
 }
 
 const Content = (props) => {
@@ -29,29 +25,17 @@ const Content = (props) => {
 	)
 }
 
-
 const Total = (props) => {
     console.log(props)
     //console logs only display in browser console, not terminal console
-    return(
-        <div>
-            <p>Total Number of exercises: {
-                props.parts[0].exercises +
-                props.parts[1].exercises + 
-                props.parts[2].exercises
-            }
-            
-            </p>
-        </div>
-    )
+    return <p>Total Number of exercises: {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
 }
 
-
 const App = () => {
-    const course = 'Half Stack application development'
-    // Instead of creating 3 constant objects like earlier, how about just creating a single array constant that can be iterated through!
-    const parts = [
-        {
+    // Finally, we'll only pass in one variable constant, and still do the split out calls in the above components
+    const course = {
+        name: 'Half Stack application development',
+        parts: [{
             name: 'Fundamentals of React',
             exercises: 10
         },
@@ -62,16 +46,14 @@ const App = () => {
         {
             name: 'State of a component',
             exercises: 14
-        }
-    ]
+        }]
+    }
 
-    // Just modifying what we pass in to the components so that We're doing more work splitting
-    // out the array values in the above components
     return (
         <div>
-        	<Header course={course} />
-            <Content parts={parts} />
-            <Total parts={parts} />
+        	<Header course={course.name} />
+            <Content parts={course.parts} />
+            <Total parts={course.parts} />
         </div>
     )
 }
