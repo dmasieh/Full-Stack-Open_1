@@ -12,34 +12,13 @@ const random = () => Math.floor(Math.random() * 6)
 
 const App = (props) => {
     const [selected, setSelected] = useState(random)
-    //display a random anecdote upon entry of application
     const [vote, setVote] = useState(new Array(props.anecdotes.length).fill(0))
-    //console.log(props.anecdotes)
-    //console.log(props.anecdotes.length)
-    //console.log(vote)
     
     const handleClick = () => {
-        //console.log(vote[selected])
-        //console.log(vote)
         const voteCopy = [...vote]
         voteCopy[selected] += 1
-        //console.log(voteInc)
-        //console.log(voteCopy)
-
         setVote(voteCopy)
-        //console.log(voteCopy[selected] +=1)
-        //const newVoteArray = voteCopy[selected] +=1
-        
-        //console.log(newVoteArray)
-        
-        //setVote()
-        //console.log()
-        
-        //setVote(newVoteArray[selected] += 1)
-        //console.log(vote[selected])
-        //console.log(vote)
     }
-
 
     return (
         <div>
