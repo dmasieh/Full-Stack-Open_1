@@ -8,15 +8,20 @@ const Button = (props) => (
 )
 
 // Now refactored each statistic into it's own component
-const Statistic = (props) => <p><b>{props.category}</b>: {props.count}</p>
+const Statistic = (props) => <tr><td><b>{props.category}</b></td><td>{props.count}</td></tr>
 
 const Statistics = (props) => {
 	if(props.good >= 1 && (props.neutral + props.bad === 0)){
         return (
 			<>
 				<h3>{props.title}</h3>	
-				<Statistic category='Good Votes' count={props.good} />
-				<Statistic category={props.total} count={props.good} />
+				<table border="1">
+					<tbody>
+						<Statistic category='Good Votes' count={props.good} />
+						<Statistic category={props.total} count={props.good} />
+					</tbody>
+				</table>
+				
 				<p>There was only Good Votes, an Average of 1 and Positive Feedback.....so far</p>
 			</>	
 		)
@@ -25,13 +30,17 @@ const Statistics = (props) => {
     } else {
         return (
 			<>
-				<h3>{props.title}</h3>	
-				<Statistic category='Good Votes' count={props.good} />
-				<Statistic category='Neutral votes' count={props.neutral} />
-				<Statistic category='Bad votes' count={props.bad} />
-				<Statistic category={props.total} count={props.good + props.neutral + props.bad} />
-				<Statistic category='Average Score' count={(props.good + (props.bad * -1)) / (props.good + props.bad + props.neutral)} />
-				<Statistic category={props.positive} count={((props.good / (props.good + props.neutral + props.bad)) * 100)+'%'} />
+				<h3>{props.title}</h3>
+				<table border="1">
+					<tbody>
+						<Statistic category='Good Votes' count={props.good} />
+						<Statistic category='Neutral votes' count={props.neutral} />
+						<Statistic category='Bad votes' count={props.bad} />
+						<Statistic category={props.total} count={props.good + props.neutral + props.bad} />
+						<Statistic category='Average Score' count={(props.good + (props.bad * -1)) / (props.good + props.bad + props.neutral)} />
+						<Statistic category={props.positive} count={((props.good / (props.good + props.neutral + props.bad)) * 100)+'%'} />
+					</tbody>
+				</table>
 			</>
 		)
 	}
