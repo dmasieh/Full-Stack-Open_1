@@ -13,22 +13,42 @@ const random = () => Math.floor(Math.random() * 6)
 const App = (props) => {
     const [selected, setSelected] = useState(random)
     const [vote, setVote] = useState(new Array(props.anecdotes.length).fill(0))
-    
+    const voteCopy = [...vote]
+    const MaxNum = vote.indexOf(Math.max(...vote))
+
     const handleClick = () => {
-        const voteCopy = [...vote]
         voteCopy[selected] += 1
         setVote(voteCopy)
     }
 
-    return (
-        <div>
+    const genericOutput = (
+        <>
             <h3>Anecdote of the Day</h3>
             <p>{props.anecdotes[selected]}</p>
             <p><b>This Anecdote has: {vote[selected]} votes</b></p>
             <Button text='Next Anecdote' onClick={ () => setSelected(random) } />
             <Button text='Vote this Anecdote' onClick={ () => handleClick() } />
-        </div>
+        </>
     )
+
+    if (Math.max(...vote) === 0){
+        return (
+            <div>
+                {genericOutput}
+                <h3>There is no highest voted anecdote because you haven't voted yet :(</h3>
+                <p><b>Go Vote!!!!!</b></p>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                {genericOutput}
+                <h3>The anecdote with the most votes is.....</h3>
+                <p>{props.anecdotes[MaxNum]}</p>
+                <p><b>With {Math.max(...vote)} vote(s)!</b></p>
+            </div>
+        )
+    }
 }
 
 const anecdotes = [
